@@ -26,11 +26,11 @@
   (function () {
     var accents = { orange: 1, purple: 1, sakura: 1, blue: 1, pink: 1, green: 1, black: 1 };
     var match = document.cookie.match(/(?:^|;\s*)flatpaper-accent=([^;]+)/);
-    var accent = 'green';
+    var accent = 'orange';
     if (match) {
       try { accent = decodeURIComponent(match[1]); } catch (e) {}
     }
-    if (!accents[accent]) accent = 'green';
+    if (!accents[accent]) accent = 'orange';
     document.documentElement.setAttribute('data-accent', accent);
     try {
       if (localStorage.getItem('flatpaper-mode') === 'dark') {
@@ -69,11 +69,12 @@
   
 
   
-<meta name="generator" content="Hexo 8.1.2"></head>
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="焕煜拾光" type="application/atom+xml">
+</head>
 
 <body
-  class="is-home tag-style-tape bg-style-default"
-  data-default-accent="green"
+  class="is-home has-home-hero is-hero-active tag-style-tape bg-style-default"
+  data-default-accent="orange"
   data-code-theme="simple"
   data-note-style="sticky"
   data-note-icons="on"
@@ -88,6 +89,239 @@
       </filter>
     </defs>
   </svg>
+  
+    
+
+<section
+  class="home-hero has-draggable-stickers"
+  aria-label="首页开屏"
+  
+  
+>
+  
+  
+  <div class="home-hero__grain" aria-hidden="true"></div>
+  <div class="home-hero__tools" aria-label="开屏工具">
+    
+      <button class="icon-button home-hero__tool js-hero-shuffle" type="button" aria-label="打乱贴纸位置" title="打乱贴纸位置">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shuffle flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-shuffle"></use></svg>
+
+      </button>
+    
+    <button class="theme-toggle home-hero__tool" type="button" aria-label="切换颜色模式" title="切换颜色模式">
+      <span class="theme-icon theme-icon--sun">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-sun"></use></svg>
+</span>
+      <span class="theme-icon theme-icon--moon">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-moon"></use></svg>
+</span>
+    </button>
+  </div>
+  
+    <div class="home-hero__stickers" aria-hidden="true">
+      
+        <button
+          type="button"
+          class="hero-sticker hero-sticker--note"
+          data-hero-sticker="builtin-note"
+          aria-hidden="true"
+          tabindex="-1"
+        ><span>今日</span></button>
+      
+      
+    </div>
+  
+
+  <div class="home-hero__content">
+    <div class="home-hero__profile">
+      
+        <div class="avatar avatar--image avatar--circle home-hero__avatar">
+          <img src="/images/avatar.jpg" alt="阮焕煜" loading="eager" referrerpolicy="no-referrer">
+        </div>
+      
+      <p class="home-hero__eyebrow"><span class="green-dot"></span>技术与生活记录</p>
+      <h1>焕煜拾光</h1>
+      
+        
+        <p class="home-hero__bio">
+
+<span class="home-hero__typed" id="home-hero-type-tips"></span>
+<script>
+(function () {
+  var el = document.getElementById("home-hero-type-tips");
+  if (!el) return;
+  var sub = ["桃李春风一杯酒，江湖夜雨十年灯"];
+  var source = 1;
+  var effect = true;
+  var loop = true;
+  var startDelay = 300;
+  var typeSpeed = 150;
+  var backSpeed = 50;
+  var cdn = "https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js";
+  var fromLabel = "出自";
+
+  // One shared loader per page: footer and hero can both enable the
+  // typewriter, and they must not each request Typed.js.
+  var loader = window.flatpaperLoadTyped;
+  if (!loader) {
+    loader = window.flatpaperLoadTyped = function (src, done) {
+      var state = loader._state || (loader._state = { status: 0, waiting: [] });
+      if (typeof Typed !== 'undefined') { done(true); return; }
+      if (state.status === 2) { done(false); return; }
+      state.waiting.push(done);
+      if (state.status === 1) return;
+      state.status = 1;
+      var settled = false;
+      function settle(ok) {
+        if (settled) return;
+        settled = true;
+        state.status = ok ? 0 : 2;
+        var queue = state.waiting;
+        state.waiting = [];
+        for (var i = 0; i < queue.length; i++) queue[i](ok && typeof Typed !== 'undefined');
+      }
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = function () { settle(true); };
+      // A failed CDN must not leave the caller waiting: onerror settles as a
+      // failure, and the timeout covers a request that never resolves at all.
+      s.onerror = function () { settle(false); };
+      setTimeout(function () { settle(false); }, 6000);
+      (document.body || document.documentElement).appendChild(s);
+    };
+  }
+
+  // Without Typed.js (disabled, blocked CDN or timeout) the first string is
+  // still shown as plain text, so the slot is never left empty.
+  function render(strings) {
+    var list = [];
+    for (var i = 0; i < strings.length; i++) {
+      if (strings[i] != null && String(strings[i]) !== '') list.push(String(strings[i]));
+    }
+    if (!list.length) return;
+    if (!effect) { el.textContent = list[0]; return; }
+    loader(cdn, function (ready) {
+      if (!ready) { el.textContent = list[0]; return; }
+      new Typed(el, {
+        strings: list,
+        startDelay: startDelay,
+        typeSpeed: typeSpeed,
+        backSpeed: backSpeed,
+        loop: loop
+      });
+    });
+  }
+
+  function withQuote(quote, from) {
+    var strings = sub.slice();
+    if (quote) {
+      if (from) strings.unshift(fromLabel + ' ' + from);
+      strings.unshift(quote);
+    }
+    render(strings);
+  }
+
+  // Quote providers are plain <script> endpoints; a failure here only means
+  // falling back to the configured `sub` list.
+  function loadOnce(src, done) {
+    var settled = false;
+    function settle(ok) { if (!settled) { settled = true; done(ok); } }
+    var s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    s.onload = function () { settle(true); };
+    s.onerror = function () { settle(false); };
+    setTimeout(function () { settle(false); }, 6000);
+    (document.body || document.documentElement).appendChild(s);
+  }
+
+  if (source === 1) {
+    fetch('https://v1.hitokoto.cn')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { withQuote(data && data.hitokoto, data && data.from); })
+      .catch(function () { render(sub); });
+  } else if (source === 2) {
+    loadOnce('https://yijuzhan.com/api/word.php?m=js', function (ok) {
+      if (ok && typeof str !== 'undefined' && str && str[0]) withQuote(str[0], str[1]);
+      else render(sub);
+    });
+  } else if (source === 3) {
+    loadOnce('https://sdk.jinrishici.com/v2/browser/jinrishici.js', function (ok) {
+      if (!ok || typeof jinrishici === 'undefined' || !jinrishici.load) { render(sub); return; }
+      jinrishici.load(function (result) {
+        withQuote(result && result.data && result.data.content, '');
+      });
+    });
+  } else {
+    render(sub);
+  }
+
+})();
+</script>
+
+</p>
+      
+      
+      
+        <div class="home-hero__divider" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="12" viewBox="0 0 56 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6c3.5-3.5 6.5-3.5 10 0s6.5 3.5 10 0 6.5-3.5 10 0 6.5 3.5 10 0 6.5-3.5 10 0" />
+          </svg>
+        </div>
+      
+      <div class="socials home-hero__links" aria-label="个人链接">
+        
+          <a href="https://github.com/ruanhuanyu" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub">
+            
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 496 512" fill="currentColor" class="lucide lucide-github flatpaper-icon flatpaper-icon--fa-brands" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-fa-brands-github"></use></svg>
+
+            
+          </a>
+        
+          <a href="mailto:1311074933@qq.com" target="_blank" rel="noopener" aria-label="Email" data-tooltip="Email">
+            
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-mail"></use></svg>
+
+            
+          </a>
+        
+          <a href="https://space.bilibili.com/12345" target="_blank" rel="noopener" aria-label="Bilibili" data-tooltip="Bilibili">
+            
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor" class="lucide lucide-bilibili flatpaper-icon flatpaper-icon--fa-brands" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-fa-brands-bilibili"></use></svg>
+
+            
+          </a>
+        
+        
+          
+          
+          <a href="/atom.xml" aria-label="RSS feed" data-tooltip="RSS feed">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-rss"></use></svg>
+
+          </a>
+        
+      </div>
+    </div>
+  </div>
+  <a
+    class="home-hero__arrow"
+    href="#flatpaper-home-content"
+    data-hero-scroll
+    
+    style="--hero-cta-bg: url(&quot;/images/home/cta/webp/cta-bg-01.webp&quot;);"
+    aria-label="开始阅读"
+    title="开始阅读"
+  >
+    <span class="home-hero__arrow-text">开始阅读</span>
+  </a>
+</section>
+
   
   <header class="site-header">
   
@@ -111,6 +345,59 @@
   </div>
 
   <nav class="site-nav" aria-label="主导航">
+    
+      
+        <a class="site-nav-link active" href="/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-house"></use></svg>
+
+          <span>首页</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/about/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-user"></use></svg>
+
+          <span>关于</span>
+        </a>
+      
+    
+      
+        <div class="site-nav-item has-children">
+          <button class="site-nav-link site-nav-parent" type="button" aria-haspopup="true" aria-expanded="false">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-folder"></use></svg>
+
+            <span>文章</span>
+          </button>
+          <div class="site-nav-menu" role="menu">
+            
+              <a role="menuitem" class="" href="/categories/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-folder"></use></svg>
+
+                <span>分类</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/tags/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-tag"></use></svg>
+
+                <span>标签</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/archives/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-archive"></use></svg>
+
+                <span>归档</span>
+              </a>
+            
+          </div>
+        </div>
+      
     
   </nav>
 
@@ -163,7 +450,7 @@
 
 
   
-  <main class="paper-shell ">
+  <main id="flatpaper-home-content" class="paper-shell ">
     
 
 <aside id="paper-sidebar-drawer" class="paper-sidebar paper-sidebar--right" aria-label="侧边栏">
@@ -201,20 +488,122 @@
   <section class="side-card nav-card">
     <nav class="site-nav-drawer" aria-label="移动端导航">
       
+        
+          <a class="active" href="/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-house"></use></svg>
+
+            <span>首页</span>
+          </a>
+        
+      
+        
+          <a class="" href="/about/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-user"></use></svg>
+
+            <span>关于</span>
+          </a>
+        
+      
+        
+          <div class="drawer-nav-group">
+            <button class="drawer-nav-parent" type="button" aria-expanded="false">
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-folder"></use></svg>
+
+              <span>文章</span>
+            </button>
+            <div class="drawer-nav-children">
+              
+                <a class="" href="/categories/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-folder"></use></svg>
+
+                  <span>分类</span>
+                </a>
+              
+                <a class="" href="/tags/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-tag"></use></svg>
+
+                  <span>标签</span>
+                </a>
+              
+                <a class="" href="/archives/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-archive"></use></svg>
+
+                  <span>归档</span>
+                </a>
+              
+            </div>
+          </div>
+        
+      
     </nav>
   </section>
 
   <section class="side-card profile-card reveal">
     
-      <div class="avatar" aria-hidden="true">
-        <span></span><i></i><em></em><b></b>
+      <div class="avatar avatar--image avatar--circle">
+        <img src="/images/avatar.jpg" alt="阮焕煜" loading="lazy" referrerpolicy="no-referrer">
       </div>
     
     <h3>阮焕煜</h3>
-    <p class="profile-role">日常记录</p>
-    <p>介绍一下自己 — 一两句话，写写你想被别人记住的部分。</p>
+    <p class="profile-role">技术与生活记录</p>
+    <p>我是阮焕煜，在这里记录技术学习与生活片段。愿每一次拾光，都不被辜负。</p>
+    
+      <div class="site-info" aria-label="站点信息">
+        
+          
+            <a class="site-info__item" href="/archives/">
+              <strong>1</strong>
+              <span>文章</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/categories/">
+              <strong>0</strong>
+              <span>分类</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/tags/">
+              <strong>0</strong>
+              <span>标签</span>
+            </a>
+          
+        
+      </div>
     
     <div class="socials">
+      
+        <a href="https://github.com/ruanhuanyu" target="_blank" rel="noopener" aria-label="GitHub" data-tooltip="GitHub">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 496 512" fill="currentColor" class="lucide lucide-github flatpaper-icon flatpaper-icon--fa-brands" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-fa-brands-github"></use></svg>
+
+          
+        </a>
+      
+        <a href="mailto:1311074933@qq.com" target="_blank" rel="noopener" aria-label="Email" data-tooltip="Email">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail flatpaper-icon flatpaper-icon--lucide" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-lucide-mail"></use></svg>
+
+          
+        </a>
+      
+        <a href="https://space.bilibili.com/12345" target="_blank" rel="noopener" aria-label="Bilibili" data-tooltip="Bilibili">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor" class="lucide lucide-bilibili flatpaper-icon flatpaper-icon--fa-brands" aria-hidden="true"><use href="/icons.svg#flatpaper-icon-fa-brands-bilibili"></use></svg>
+
+          
+        </a>
       
       
         
@@ -355,7 +744,124 @@
 
   
 <footer class="site-footer">
-  <span class="site-footer__left">© 2026 By 阮焕煜</span>
+  <span class="site-footer__left">© 2026 By 阮焕煜
+
+<span class="site-footer__typed" id="footer-type-tips"></span>
+<script>
+(function () {
+  var el = document.getElementById("footer-type-tips");
+  if (!el) return;
+  var sub = ["桃李春风一杯酒，江湖夜雨十年灯."];
+  var source = 3;
+  var effect = true;
+  var loop = true;
+  var startDelay = 300;
+  var typeSpeed = 150;
+  var backSpeed = 50;
+  var cdn = "https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js";
+  var fromLabel = "出自";
+
+  // One shared loader per page: footer and hero can both enable the
+  // typewriter, and they must not each request Typed.js.
+  var loader = window.flatpaperLoadTyped;
+  if (!loader) {
+    loader = window.flatpaperLoadTyped = function (src, done) {
+      var state = loader._state || (loader._state = { status: 0, waiting: [] });
+      if (typeof Typed !== 'undefined') { done(true); return; }
+      if (state.status === 2) { done(false); return; }
+      state.waiting.push(done);
+      if (state.status === 1) return;
+      state.status = 1;
+      var settled = false;
+      function settle(ok) {
+        if (settled) return;
+        settled = true;
+        state.status = ok ? 0 : 2;
+        var queue = state.waiting;
+        state.waiting = [];
+        for (var i = 0; i < queue.length; i++) queue[i](ok && typeof Typed !== 'undefined');
+      }
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = function () { settle(true); };
+      // A failed CDN must not leave the caller waiting: onerror settles as a
+      // failure, and the timeout covers a request that never resolves at all.
+      s.onerror = function () { settle(false); };
+      setTimeout(function () { settle(false); }, 6000);
+      (document.body || document.documentElement).appendChild(s);
+    };
+  }
+
+  // Without Typed.js (disabled, blocked CDN or timeout) the first string is
+  // still shown as plain text, so the slot is never left empty.
+  function render(strings) {
+    var list = [];
+    for (var i = 0; i < strings.length; i++) {
+      if (strings[i] != null && String(strings[i]) !== '') list.push(String(strings[i]));
+    }
+    if (!list.length) return;
+    if (!effect) { el.textContent = list[0]; return; }
+    loader(cdn, function (ready) {
+      if (!ready) { el.textContent = list[0]; return; }
+      new Typed(el, {
+        strings: list,
+        startDelay: startDelay,
+        typeSpeed: typeSpeed,
+        backSpeed: backSpeed,
+        loop: loop
+      });
+    });
+  }
+
+  function withQuote(quote, from) {
+    var strings = sub.slice();
+    if (quote) {
+      if (from) strings.unshift(fromLabel + ' ' + from);
+      strings.unshift(quote);
+    }
+    render(strings);
+  }
+
+  // Quote providers are plain <script> endpoints; a failure here only means
+  // falling back to the configured `sub` list.
+  function loadOnce(src, done) {
+    var settled = false;
+    function settle(ok) { if (!settled) { settled = true; done(ok); } }
+    var s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    s.onload = function () { settle(true); };
+    s.onerror = function () { settle(false); };
+    setTimeout(function () { settle(false); }, 6000);
+    (document.body || document.documentElement).appendChild(s);
+  }
+
+  if (source === 1) {
+    fetch('https://v1.hitokoto.cn')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { withQuote(data && data.hitokoto, data && data.from); })
+      .catch(function () { render(sub); });
+  } else if (source === 2) {
+    loadOnce('https://yijuzhan.com/api/word.php?m=js', function (ok) {
+      if (ok && typeof str !== 'undefined' && str && str[0]) withQuote(str[0], str[1]);
+      else render(sub);
+    });
+  } else if (source === 3) {
+    loadOnce('https://sdk.jinrishici.com/v2/browser/jinrishici.js', function (ok) {
+      if (!ok || typeof jinrishici === 'undefined' || !jinrishici.load) { render(sub); return; }
+      jinrishici.load(function (result) {
+        withQuote(result && result.data && result.data.content, '');
+      });
+    });
+  } else {
+    render(sub);
+  }
+
+})();
+</script>
+
+</span>
   
     <span class="site-footer__right">
       
